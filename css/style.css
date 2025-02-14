@@ -1,0 +1,321 @@
+body {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    width: 100%;
+    height: 15vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ededed;
+    flex-wrap: wrap;
+}
+
+.corpo {
+    width: 80%;
+    display: flex;
+    padding: 1vh 0;
+}
+
+.logo {
+    width: 8%;
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 100%;
+}
+
+.titulo {
+    width: 92%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 2vh;
+}
+
+.titulo h1 {
+    margin: 0;
+    font-size: 2em;
+    color: #1b5d1b;
+}
+
+.titulo p {
+    font-size: 1em;
+    color: #1b5d1b;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.barra-superior {
+    width: 100%;
+    height: 2vh;
+    background-color: #d5d5d5;
+}
+
+.conteudo {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.nome-chamada {
+    width: 100%;
+    height: 73vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #ededed;
+    padding-bottom: 10vh;
+}
+
+.nome-chamada h1 {
+    color: #333;
+}
+
+.digite-nome {
+    width: 30%;
+    justify-content: center;
+    text-align: center;
+}
+
+button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #1b5d1b;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+p {
+    font-size: 1.2em;
+    color: #555;
+}
+
+.nomeDestaque {
+    font-size: 3em;
+    font-weight: bold;
+    color: #333;
+}
+
+#radio-servidor {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 2vh;
+    padding-bottom: 4vh;
+}
+
+.quadro-chamada {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.quadro-chamada h1 {
+    text-align: center;
+    padding-bottom: 2vh;
+}
+
+.chamada-box {
+    width: 60%;
+    background: linear-gradient(135deg, #007a33, #00a859);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.chamada-box h1 {
+    text-align: center;
+    color: #c91e1e;
+}
+
+.chamada-info {
+    margin-top: 10px;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chamada-info h2 {
+    color: rgb(5, 243, 5);
+}
+
+.chamada-info span {
+    color: #ffffff;
+}
+
+
+/*FORMULÁRIO*/
+
+.formulario {
+    width: 100%;
+    padding: 2% 0%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#titulo-form {
+    color: #1b5d1b;
+    text-align: center;
+}
+
+#form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.nome-form {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#nome-form {
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+input {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+}
+
+.titulo-input p {
+    font-size: 1em;
+    font-weight: 500;
+    color: #ca3c3c;
+}
+
+.radio-item {
+    display: flex;
+    align-items: center;
+}
+
+input[type="radio"] {
+    accent-color: #1b5d1b;
+    border: 0px;
+    width: 10%;
+    height: 1.3em;
+}
+
+.enviar {
+    display: flex;
+    padding-top: 2vh;
+}
+
+#mensagem {
+    width: 100%;
+    padding-top: 0.1vh;
+    text-align: center;
+}
+
+/*PÁGINA LINKS*/
+
+.box-links {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 90%;
+    max-width: 300px;
+}
+
+.box-links a {
+    display: block;
+    text-decoration: none;
+    background: #1b5d1b;
+    color: white;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.box-links a:hover {
+    background: #45a049;
+}
+
+
+@media (max-width: 720px) {
+    .titulo h1 {
+        font-size: 1.3em;
+    }
+
+    .titulo p {
+        font-size: 0.8em;
+        text-align: center;
+    }
+
+    #titulo-form {
+        font-size: 1.2em;
+    }
+
+    .corpo {
+        width: 85%;
+    }
+
+    .logo {
+        width: 15%;
+    }
+
+    .img-footer {
+        height: 3vh;
+    }
+
+    .img-footer img {
+        width: 15%;
+        padding-left: 86%;
+    }
+
+    .barra-inferior {
+        height: 6vh;
+    }
+
+    .barra-inferior p {
+        font-size: 0.8em;
+    }
+
+    #submit {
+        margin-bottom: 6%;
+    }
+
+}
