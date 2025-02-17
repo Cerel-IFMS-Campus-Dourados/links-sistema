@@ -1,12 +1,12 @@
-document.getElementById("form").addEventListener("submit", function (event) {
-    event.preventDefault(); // Evita o comportamento padrão de envio de formulário
+document.getElementById("form").addEventListener("submit", function (e) {
+    e.preventDefault(); // Evita o comportamento padrão de envio de formulário
 
     const submit = document.getElementById('submit');
     submit.disabled = true;
     submit.innerText = "Enviado...";
 
     let formData = new FormData(this);
-    fetch("https://script.google.com/macros/s/AKfycbxg1dLPWdZdpno7rGK-w1A8kIfq-0DxTLBZ59D8aJXC-S6sTxqLqosQgln_LJIT3T8/exec", {
+    fetch("https://script.google.com/macros/s/AKfycbzfRPdqrk_HrjNEqZw6tN5MibOO1FdxXq349xZs5qxTAx3PW5cPeV2eyqzfXxtCm4oH/exec", {
         method: "POST",
         body: formData
     })
