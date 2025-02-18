@@ -1,0 +1,161 @@
+//PAGINA 01
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <title>Página Servidor Central de Relacionamento - CEREL</title>
+  <link rel="icon" href="img/logo-ifms.png">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <script type="text/javascript" src="js/pagina_servidor.js"></script>
+</head>
+
+<body>
+  <header>
+    <div class="corpo">
+      <div class="logo">
+        <img src="img/logo-ifms.png" alt="Logo IFMS">
+      </div>
+      <div class="titulo">
+        <h1>Central de Relacionamento - CEREL</h1>
+        <p>INSTITUTO FEDERAL DE MATO GROSSO DO SUL - CAMPUS DOURADOS</p>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="barra-superior"></div>
+    <div class="conteudo">
+      <div class="nome-chamada">
+        <div class="digite-nome">
+          <label for="nome-chamada">Nome a ser chamado:</label>
+          <input type="text" id="nome-chamada" placeholder="Digite o nome aqui" required />
+          <label for="mesa-numero">Número da mesa:</label>
+          <input type="number" id="numero-mesa" placeholder="Digite o número da mesa" required />
+          <label for="radio-servidor">Nome do servidor:</label>
+          <div id="radio-servidor">
+            <div class="radio-servidor-item">
+              <input type="radio" id="servidor1" name="servidor" value="ISNAEL" required>
+              <label for="servidor1">ISNAEL</label>
+            </div>
+            <div class="radio-servidor-item">
+              <input type="radio" id="servidor2" name="servidor" value="CHARLEY" required>
+              <label for="servidor2">CHARLEY</label>
+            </div>
+            <div class="radio-servidor-item">
+              <input type="radio" id="servidor3" name="servidor" value="FABRÍCIO" required>
+              <label for="servidor3">FABRÍCIO</label>
+            </div>
+          </div>
+          <button onclick="enviarNome()">Enviar</button>
+        </div>
+        <p id="confirmation" style="color: green; display: none;">Nome enviado com sucesso!</p>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
+
+//PAGINA 02
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <title>Página Chamada Central de Relacionamento - CEREL</title>
+  <link rel="icon" href="img/logo-ifms.png">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <script type="text/javascript" src="js/pagina_chamada.js"></script>
+</head>
+
+<body>
+  <header>
+    <div class="corpo">
+      <div class="logo">
+        <img src="img/logo-ifms.png" alt="Logo IFMS">
+      </div>
+      <div class="titulo">
+        <h1>Central de Relacionamento - CEREL</h1>
+        <p>INSTITUTO FEDERAL DE MATO GROSSO DO SUL - CAMPUS DOURADOS</p>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="barra-superior"></div>
+    <div class="nome-chamada">
+      <div class="quadro-chamada">
+        <h1>Seja bem-vindo(a), aguarde ser chamado(a)!</h1>
+        <div id="displayPage" class="chamada-box" style="display: none;">
+          <h1>📢 ATENÇÃO:</h1>
+          <div class="chamada-info">
+            <h2>SR.(A): <span id="nomeUsuario"></span></h2>
+          </div>
+          <div class="chamada-info">
+            <h2>DIRIJA-SE À MESA: <span id="nomeMesa"></span></h2>
+          </div>
+          <div class="chamada-info">
+            <h2>SERVIDOR: <span id="servidorSelecionado"></span></h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
+
+//FUNCAO 01
+function enviarNome() {
+    const nome = document.getElementById("nome-chamada").value;
+    const mesa = document.getElementById("numero-mesa").value;
+    const servidor = document.querySelector('input[name="servidor"]:checked');
+
+    if (nome && mesa && servidor) {
+        // Salva o nome no localStorage
+        localStorage.setItem("nomeUsuario", nome);
+        localStorage.setItem("nomeMesa", mesa);
+        localStorage.setItem("servidorSelecionado", servidor.value);
+
+        // Exibe uma confirmação de envio
+        document.getElementById("confirmation").style.display = "block";
+
+        // Limpa o campo de input
+        document.getElementById("nome-chamada").value = "";
+        document.getElementById("numero-mesa").value = "";
+        servidor.checked = false;
+
+        // Recarrega a página após 2 segundos para permitir o envio de outro nome
+        setTimeout(function () {
+            document.getElementById("confirmation").style.display = "none";
+        }, 2000); // Esconde a confirmação após 2 segundos
+    } else {
+        alert("Por favor, insira um nome!");
+    }
+
+}
+
+//FUNCAO 02
+function atualizarNome() {
+    const nome = localStorage.getItem("nomeUsuario");
+    const mesa = localStorage.getItem("nomeMesa");
+    const servidor = localStorage.getItem("servidorSelecionado");
+
+    document.getElementById("displayPage").style.display = "block";
+
+    if (nome) document.getElementById("nomeUsuario").innerText = nome;
+    if (mesa) document.getElementById("nomeMesa").innerText = mesa;
+    if (servidor) document.getElementById("servidorSelecionado").innerText = servidor;
+}
+
+// Atualiza o nome sempre que o localStorage for alterado
+window.addEventListener('storage', function (event) {
+    if (event.key === 'nomeUsuario' || event.key === 'nomeMesa' || event.key === 'servidorSelecionado') {
+        atualizarNome();
+    }
+});
